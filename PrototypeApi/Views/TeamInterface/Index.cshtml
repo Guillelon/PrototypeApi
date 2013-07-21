@@ -1,0 +1,73 @@
+﻿<body>
+    <script src="@Url.Content("~/Scripts/jquery-2.0.3.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout-2.1.0.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/App/teamsKo.js")" type="text/javascript"></script>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li>
+                            <button class="btn btn-info" data-bind="click: changeSelectedToVenezuela">Venezuela</button></li>
+                        <li>
+                            <button class="btn btn-info" data-bind="click: changeSelectedToColombia">Colombia</button></li>
+                        <li>
+                            <button class="btn btn-info" data-bind="click: changeSelectedToAll">Todos</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span9">
+                <div class="container">
+                    <a href="#myModal" role="button" class="btn" data-toggle="modal">Crear nuevo equipo</a>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Nombre
+                            </th>
+                            <th>Ciudad
+                            </th>
+                            <th>Pais
+                            </th>
+                        </tr>
+                        <tbody data-bind="foreach: showTeams()">
+                            <tr>
+                                <td>
+                                    <span data-bind="text: Name"></span>
+                                </td>
+
+                                <td>
+                                    <span data-bind="text: City"></span>
+                                </td>
+
+                                <td>
+                                    <span data-bind="text: Country"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Nuevo Equipo</h3>
+    </div>
+    <div class="modal-body">
+        <p>Nombre: <input data-bind="value: NewTeamName" /></p>
+        <p>Ciudad: <input data-bind="value: NewTeamCity" /></p>
+        <p>País:  <select data-bind="options: availableCountries, value: selectedCountry"></select></p>
+    </div>
+    <div class="modal-footer">
+        <button id="addButton" class="btn btn-primary"  data-bind="click: addNewTeam">Save changes</button>
+    </div>
+</div>
+
+
+
+
+
