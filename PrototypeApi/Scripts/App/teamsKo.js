@@ -2,7 +2,6 @@ AppViewModel = function () {
     var self = this;
     self.allTeams = ko.observableArray();
     self.showTeams = ko.observableArray();
-
     
     self.availableCountries = ko.observableArray(['Colombia', 'Venezuela']);
     self.selectedCountry = ko.observable();

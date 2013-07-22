@@ -25,8 +25,13 @@ namespace PrototypeApi.Controllers
 
         public HttpStatusCode Add(Team team) 
         {
-            teamRepository.Add(team);
-            return HttpStatusCode.Accepted;
+            if (team.Country == "Colombia" || team.Country == "Venezuela")
+            {
+                teamRepository.Add(team);
+                return HttpStatusCode.Accepted;
+            }
+            else
+                return HttpStatusCode.BadRequest;
         }
     }
 }
