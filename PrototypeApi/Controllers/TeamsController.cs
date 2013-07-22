@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace PrototypeApi.Controllers
 {
-    public class TeamsController : Controller
+    public class TeamsController : ApiController
     {
         TeamRepository teamRepository;
 
@@ -17,11 +17,10 @@ namespace PrototypeApi.Controllers
             this.teamRepository = new TeamRepository();
         }
 
-        public ActionResult Get() 
+        public List<Team> Get() 
         {
             var allTeams = teamRepository.GetAll();
-            var jsondata = new { teams = allTeams };
-            return Json(jsondata, JsonRequestBehavior.AllowGet);
+            return allTeams.ToList();
         }
 
         public HttpStatusCode Add(Team team) 
