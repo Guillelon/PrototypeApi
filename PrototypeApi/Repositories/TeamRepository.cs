@@ -6,7 +6,7 @@ using System.Web;
 
 namespace PrototypeApi
 {
-    public class TeamRepository
+    public class TeamRepository : ITeamRepository
     {
         TeamDB context;
 
