@@ -23,15 +23,15 @@ namespace PrototypeApi.Controllers
             return allTeams.ToList();
         }
 
-        public HttpStatusCode Add(Team team) 
+        public Team Add(Team team) 
         {
             if (team.Country == "Colombia" || team.Country == "Venezuela")
             {
                 teamRepository.Add(team);
-                return HttpStatusCode.Accepted;
+                return team;
             }
             else
-                return HttpStatusCode.BadRequest;
+                return null;
         }
     }
 }
