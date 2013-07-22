@@ -10,7 +10,7 @@ namespace PrototypeApi.Controllers
 {
     public class TeamsController : ApiController
     {
-        TeamRepository teamRepository;
+        ITeamRepository teamRepository;
 
         public TeamsController() 
         {
